@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { getUploadUrl } from '../config';
 
 const ImageGallery = ({ images }) => {
     const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
@@ -35,7 +36,7 @@ const ImageGallery = ({ images }) => {
                     {images.map((img, index) => (
                         <div key={index} className="flex-[0_0_100%] min-w-0 relative h-[500px]">
                             <img
-                                src={`http://localhost:5000/uploads/${img}`}
+                                src={getUploadUrl(img)}
                                 alt={`Slide ${index}`}
                                 className="w-full h-full object-contain bg-black/5"
                             />

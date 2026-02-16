@@ -1,13 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { MapPin } from 'lucide-react';
+import { getUploadUrl } from '../config';
 
 const PropertyCard = ({ property }) => {
     const images = property.images && property.images.length > 0
         ? property.images
         : [];
     const mainImage = images.length > 0
-        ? `http://localhost:5000/uploads/${images[0]}`
+        ? getUploadUrl(images[0])
         : 'https://via.placeholder.com/400x300?text=No+Image';
 
     return (
